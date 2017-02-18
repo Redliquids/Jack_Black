@@ -1,0 +1,6 @@
+c:\tfs\C Sharp\Jack_Black\Jack_Black\bin\Debug\Jack_Black.exe.config
+c:\tfs\C Sharp\Jack_Black\Jack_Black\obj\Debug\Jack_Black.csprojResolveAssemblyReference.cache
+c:\tfs\C Sharp\Jack_Black\Jack_Black\bin\Debug\Jack_Black.exe
+c:\tfs\C Sharp\Jack_Black\Jack_Black\bin\Debug\Jack_Black.pdb
+c:\tfs\C Sharp\Jack_Black\Jack_Black\obj\Debug\Jack_Black.exe
+c:\tfs\C Sharp\Jack_Black\Jack_Black\obj\Debug\Jack_Black.pdb
