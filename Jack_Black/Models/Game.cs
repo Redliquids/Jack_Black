@@ -10,9 +10,9 @@ namespace Jack_Black.Models
     public class Game
     {
 
-        public Deck testdeck { get; set; }
-        public Player testplayer { get; set; }
-        public Dealer testdealer { get; set; }
+        public Deck deck { get; set; }
+        public Player player { get; set; }
+        public Dealer dealer { get; set; }
 
         public Game()
         {
@@ -21,34 +21,31 @@ namespace Jack_Black.Models
             Console.WriteLine("||||||||||||||||||||||||||||||||||||||||||");
 
 
-            testdeck = new Deck();
-            testdealer = new Dealer();
+            deck = new Deck();
+            dealer = new Dealer();
             Console.Write("Please enter your name: ");
             string name = Console.ReadLine();
-            testplayer = new Player(name);
+            player = new Player(name);
 
             StartGame();
         }
 
         public void StartGame()
         {
-            //testplayer/Dealer   both have the function AddCardToPlayer
-            //Which takes a card using GetCard() from Deck.cs 
-            //and adds it to their List<PlayerCards>
-            testdealer.AddCardToPlayer(
-                testdeck.GetCard());
-            testplayer.AddCardToPlayer(
-                testdeck.GetCard());
-            //Both players draw a card.
-            ShowPlayersCards();//Displays the cards
-            HitOrStay();//Asks user to draw or stay
+            dealer.AddCardToPlayer(
+                deck.GetCard());
+            player.AddCardToPlayer(
+                deck.GetCard());
+
+            ShowPlayersCards();
+            HitOrStay();//Asks user to draw a card or stay
         }
 
         public void ShowPlayersCards()
         {
             Console.Clear();
             Console.Write("Dealers Points: ");
-            Console.WriteLine(testdealer.GetValue());// Whenever i use GetValue() i also add?
+            Console.WriteLine(dealer.GetValue());// Whenever i use GetValue() i also add?
 
             Console.WriteLine();
 
@@ -56,8 +53,8 @@ namespace Jack_Black.Models
             //Console.Write(testplayer.PlayerName + " ");
 
 
-                Console.WriteLine("Your Points: " + testplayer.GetValue());
-            Console.WriteLine(testplayer.GetCardInfo());
+                Console.WriteLine("Your Points: " + player.GetValue());
+            Console.WriteLine(player.GetCardInfo());
 
             Console.WriteLine();
             Console.WriteLine();
@@ -102,9 +99,9 @@ namespace Jack_Black.Models
 
         public void Hit()
         {
-            testplayer.AddCardToPlayer(testdeck.GetCard());//Adds random card to player
+            player.AddCardToPlayer(deck.GetCard());//Adds random card to player
 
-            if (testplayer.GetValue() > 21)
+            if (player.GetValue() > 21)
             {
                 PlayerBusted();
             }
@@ -122,13 +119,13 @@ namespace Jack_Black.Models
             Console.Write("Dealers Cards: ");
             do
             {
-                testdealer.AddCardToPlayer(testdeck.GetCard());
+                dealer.AddCardToPlayer(deck.GetCard());
 
-            } while (testdealer.GetValue() < testplayer.GetValue());
+            } while (dealer.GetValue() < player.GetValue());
 
-            Console.WriteLine(testdealer.GetCardInfo());
+            Console.WriteLine(dealer.GetCardInfo());
 
-            if (testdealer.GetValue() > 21)
+            if (dealer.GetValue() > 21)
             {
                 DealerBusted();
             }
@@ -136,7 +133,7 @@ namespace Jack_Black.Models
             {
 
                 Console.Write("Dealers Points: ");
-                Console.WriteLine(testdealer.GetValue());
+                Console.WriteLine(dealer.GetValue());
 
                 Console.WriteLine("House Wins.");
                 Console.WriteLine("Press any key to Continue.");
@@ -186,8 +183,8 @@ namespace Jack_Black.Models
         public void Reset()
         {
             Console.Clear();
-            testplayer.HandReset();
-            testdealer.HandReset();
+            player.HandReset();
+            dealer.HandReset();
             StartGame();
         }
     }

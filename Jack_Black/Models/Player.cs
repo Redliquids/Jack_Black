@@ -17,7 +17,10 @@ namespace Jack_Black.Models
             this.PlayerName = playerName;
             this.PlayerCards = new List<Card>();
         }
-        //This Function takes Cards and adds it to the PlayerCards List
+
+        // ISSUE: AddCardToPlayer () doesn't remove a card
+        // at the position we draw it from
+        // So there's a chance to draw the same card twice.
         public void AddCardToPlayer(Card card)
         {
             PlayerCards.Add(card);
