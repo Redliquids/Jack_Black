@@ -32,9 +32,9 @@ namespace Jack_Black.Models
 
         public void StartGame()
         {
-            dealer.AddCardToPlayer(
+            dealer.AddCardToHand(
                 deck.GetCard());
-            player.AddCardToPlayer(
+            player.AddCardToHand(
                 deck.GetCard());
 
             ShowPlayersCards();
@@ -95,11 +95,10 @@ namespace Jack_Black.Models
             Console.ReadKey();
         }
 
-        //Currently the points checker doesnt work propperly.
-
+        //Adds random card to player from the deck list.
         public void Hit()
         {
-            player.AddCardToPlayer(deck.GetCard());//Adds random card to player
+            player.AddCardToHand(deck.GetCard());
 
             if (player.GetValue() > 21)
             {
@@ -111,15 +110,12 @@ namespace Jack_Black.Models
             }
         }
 
-        //Currently the points checker doesnt work propperly.
         public void Stay()
         {
-            // Instructions say 17 or more. Why would you stop at 17 if player has 18
-            // And you still have a chance to draw a card that beats his?
             Console.Write("Dealers Cards: ");
             do
             {
-                dealer.AddCardToPlayer(deck.GetCard());
+                dealer.AddCardToHand(deck.GetCard());
 
             } while (dealer.GetValue() < player.GetValue());
 
@@ -156,8 +152,6 @@ namespace Jack_Black.Models
             Console.WriteLine("Over 21. Busted.");
             Console.WriteLine();
             QuitOrGoAgain();
-            QuitOrGoAgain();
-
         }
 
         public void QuitOrGoAgain()

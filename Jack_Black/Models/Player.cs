@@ -18,48 +18,42 @@ namespace Jack_Black.Models
             this.PlayerCards = new List<Card>();
         }
 
-        // ISSUE: AddCardToPlayer () doesn't remove a card
+        // ISSUE: AddCardToPlayer() doesn't remove a card
         // at the position we draw it from
         // So there's a chance to draw the same card twice.
-        public void AddCardToPlayer(Card card)
+        public void AddCardToHand(Card card)
         {
             PlayerCards.Add(card);
         }
 
-        
+        // Calculates the value/points of the cards 
         public int GetValue()
         {
-            int points = 0;//Part of GetValue
-            // Int i will be less than PlayerCards.Count everytime i draw a card.
-            // Therefore it will run everytime i draw a card.
-            // Should also be called everytime i draw a card.
+            int points = 0;
+
             for (int i = 0; i < PlayerCards.Count; i++)
-                // It seems this doesnt work propperly,
-                // It doesnt check the values & add the values of each card
             {
 
-                //If PlayerCards[thecard].it's assigned nr == 1
-                // set points to 11 (cus 1 == ace == 11)
+                // If the nr value of the first card drawn is 1 
+                // it is an Ace and should add 11 points.
                 if (PlayerCards[i].Nr == 1)
                 {
                     points += 11;
                 }
-                //if the pulled card is 2-10, set that value to the score
-                //Cus it's just a normal card.
+                // "Normal Nr Cards"
                 else if (PlayerCards[i].Nr > 1 && PlayerCards[i].Nr < 10)
                 {
                     points += PlayerCards[i].Nr;
                 }
-                //The Knight,King & Queens values are 10, which are the only
-                //Cards left. Therefore set the rest to 10 Almost like exception handling
+                // Else is Jack, Quueen and King and are worth 10 Points.
                 else
                 {
                     points += 10;
                 }
 
-
-                // Ace value Checker ONLY IF  POINTS > 21
-                if (points > 21)
+                //This checks the players cards for aces
+                //And sets their values appropriately.
+                    if (points > 21)
                 {
                     int aceCount = 0;
                     foreach (Card Card in PlayerCards)
@@ -69,9 +63,7 @@ namespace Jack_Black.Models
                             aceCount++;
                         }
                     }
-                    // points = points - ("Either 1 || 10);
                     points -= (aceCount * 10);
-                    // It wurks!
                 }
             }
             return points;

@@ -7,3 +7,6 @@ c:\tfs\C Sharp\Jack_Black\Jack_Black\obj\Debug\Jack_Black.pdb
 C:\Users\Administratör\Documents\GitHub\Jack_Black\Jack_Black\bin\Debug\Jack_Black.exe.config
 C:\Users\Administratör\Documents\GitHub\Jack_Black\Jack_Black\obj\Debug\Jack_Black.exe
 C:\Users\Administratör\Documents\GitHub\Jack_Black\Jack_Black\obj\Debug\Jack_Black.pdb
+C:\Users\Administratör\Documents\GitHub\Jack_Black\Jack_Black\bin\Debug\Jack_Black.exe
+C:\Users\Administratör\Documents\GitHub\Jack_Black\Jack_Black\bin\Debug\Jack_Black.pdb
+C:\Users\Administratör\Documents\GitHub\Jack_Black\Jack_Black\obj\Debug\Jack_Black.csprojResolveAssemblyReference.cache
